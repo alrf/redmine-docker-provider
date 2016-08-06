@@ -4,7 +4,7 @@ set -e
 
 service mysql start
 
-mysql -u root --password=root -e "CREATE USER 'redmine'@'localhost' IDENTIFIED BY 'redmine'; CREATE DATABASE IF NOT EXISTS redmine; GRANT ALL ON redmine.* TO 'redmine'@'localhost'; flush privileges;"
+mysql -u root --password=root -e "CREATE USER 'redmine'@'localhost' IDENTIFIED BY 'redmine'; CREATE DATABASE IF NOT EXISTS redmine; GRANT ALL ON redmine.* TO 'redmine'@'localhost'; FLUSH PRIVILEGES;"
 
 chown -R redmine.redmine /home/redmine/src
 
