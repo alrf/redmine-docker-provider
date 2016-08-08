@@ -17,6 +17,7 @@ USER root
 VOLUME /home/redmine/src
 
 COPY run.sh /
+RUN /bin/chmod +x /run.sh
 ENTRYPOINT ["/run.sh"]
 
 EXPOSE 3000
