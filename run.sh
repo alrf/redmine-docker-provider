@@ -19,8 +19,9 @@ service mysql start && mysql -u root --password=root -e "CREATE USER '$R_USER'@'
 su - redmine <<'EOF'
 cd /home/redmine/src
 bundle exec rake generate_secret_token
-R_KEY=`bundle exec rake secret 2> /dev/null`
-echo -e "production:\nsecret_key_base: $R_KEY" > config/secrets.yml
+bundle exec rake secret
+#R_KEY=`bundle exec rake secret 2> /dev/null`
+#echo -e "production:\nsecret_key_base: $R_KEY" > config/secrets.yml
 bundle install --without development test rmagick
 RAILS_ENV=production bundle exec rake db:migrate
 RAILS_ENV=production REDMINE_LANG=en bundle exec rake redmine:load_default_data
