@@ -18,6 +18,7 @@ R_PW=`grep 'production:' -A 5 $CFILE | grep -E -v '#|--|^$' | grep password | cu
 
 mysql -u root --password=root -e "CREATE USER '$R_USER'@'$R_HOST' IDENTIFIED BY '$R_PW'; CREATE DATABASE IF NOT EXISTS $R_DB; GRANT ALL ON $R_DB.* TO '$R_USER'@'$R_HOST'; flush privileges;"
 
+
 su - redmine <<'EOF'
 cd /home/redmine/src
 bundle install --without development test rmagick
