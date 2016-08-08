@@ -16,7 +16,7 @@ USER root
 
 VOLUME /home/redmine/src
 
-COPY docker/run.sh /
+COPY run.sh /
 RUN /bin/chmod +x /run.sh
 ENTRYPOINT ["/run.sh"]
 
