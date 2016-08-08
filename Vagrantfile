@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "rvm" do |a|
       # Tell Vagrant to use Docker
       a.vm.provider "docker" do |d|
-        d.build_dir = "."
+        d.build_dir = "docker"
         d.name = "redmine"
         d.remains_running = true
       end
