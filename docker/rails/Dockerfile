@@ -1,13 +1,10 @@
 FROM alrf/ubuntu-rvm-rails
 
-#RUN echo 'mysql-server mysql-server/root_password password root' | sudo debconf-set-selections
-#RUN echo 'mysql-server mysql-server/root_password_again password root' | sudo debconf-set-selections
-#RUN apt -y install mysql-server libmysqlclient-dev && update-rc.d mysql defaults && update-rc.d mysql enable && service mysql start
 RUN apt -y install libmysqlclient-dev
 
-RUN useradd -d /home/redmine -m -s /bin/bash redmine
-RUN adduser redmine sudo
-RUN echo 'redmine ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/redmine
+RUN useradd -d /home/redmine -m -s /bin/bash redmine \
+  adduser redmine sudo \
+  echo 'redmine ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/redmine
 
 USER redmine
 
