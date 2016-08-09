@@ -23,7 +23,8 @@ Vagrant.configure("2") do |config|
       d.remains_running = true
       d.ports = ["3000:3000"]
       d.volumes = ["#{VAGRANT_ROOT}:/home/redmine/src"]
-      d.link "my-mysql:mysql"
+      #d.link "my-mysql:mysql"
+      d.create_args = ["--link", "my-mysql:mysql"]
     end
   end
 
