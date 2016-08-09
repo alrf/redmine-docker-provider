@@ -2,8 +2,8 @@ FROM alrf/ubuntu-rvm-rails
 
 RUN apt -y install libmysqlclient-dev
 
-RUN useradd -d /home/redmine -m -s /bin/bash redmine \
-  adduser redmine sudo \
+RUN useradd -d /home/redmine -m -s /bin/bash redmine; \
+  adduser redmine sudo; \
   echo 'redmine ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/redmine
 
 USER redmine
