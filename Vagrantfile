@@ -7,6 +7,9 @@ VAGRANT_ROOT = File.dirname(__FILE__)
 
 Vagrant.configure("2") do |config|
 
+  # for CentOS: https://github.com/docker/docker/issues/10450
+  system("iptables -D FORWARD `iptables -nL FORWARD --line | grep REJECT | cut -d' ' -f1 | xargs` 2> /dev/null")
+
   config.vm.define "mysql" do |mysql|
     mysql.vm.provider "docker" do |d|
       d.name = "my-mysql"
@@ -23,7 +26,6 @@ Vagrant.configure("2") do |config|
       d.remains_running = true
       d.ports = ["3000:3000"]
       d.volumes = ["#{VAGRANT_ROOT}:/home/redmine/src"]
-      #d.link "my-mysql:mysql"
       d.create_args = ["--link", "my-mysql:mysql"]
     end
   end
