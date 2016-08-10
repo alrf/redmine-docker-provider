@@ -3,4 +3,7 @@ Redmine docker image based on alrf/ubuntu-rvm-rails docker image (https://github
 
 Build image as:  
 clone this repo  
-run `vagrant up`  
+run `vagrant up` 
+
+This repo based on original redmine repo.  
+Only Vagrantfile and docker directory have been added.  
