@@ -7,3 +7,6 @@ run `vagrant up`
 
 This repo based on original redmine repo.  
 Only Vagrantfile and docker directory have been added.  
+
+# Requirements  
+Docker, Vagrant should be installed  
