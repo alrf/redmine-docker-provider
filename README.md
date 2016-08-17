@@ -9,4 +9,4 @@ This repo based on original redmine repo.
 Only Vagrantfile and docker directory have been added.  
 
 # Requirements  
-Docker, Vagrant should be installed  
+Docker >= 1.7.1, Vagrant >= 1.8.1 should be installed  
